@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.CUSTOM_TOKEN }}
           repository: andrewgrimm/saas_express
           path: backend
-          ref: main
+          ref: feature/initial-prototype
         
 
       - name: Use Node.js
