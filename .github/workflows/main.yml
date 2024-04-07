@@ -20,6 +20,14 @@ jobs:
           repository: andrewgrimm/saas_express
           path: backend
           ref: feature/initial-prototype
+
+      - name: checkout frontend repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CUSTOM_TOKEN }}
+          repository: andrewgrimm/saas_react
+          path: frontend
+          ref: feature/initial-prototype
         
 
       - name: Use Node.js
@@ -33,4 +41,12 @@ jobs:
 
       - name: build backend
         working-directory: ./backend
+        run: npm run build
+
+      - name: install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: build frontend
+        working-directory: ./frontend
         run: npm run build
